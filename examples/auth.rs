@@ -16,7 +16,7 @@ struct Env {
 fn main() {
   let env = envy::prefixed("STRAVA_").from_env::<Env>().unwrap();
   let config = Config::from_env().unwrap();
-  let refresh_token = RefreshToken::from(&env.refresh_token);
+  let refresh_token = RefreshToken::from(env.refresh_token);
   let login = auth::refresh_token(&refresh_token, &config).unwrap();
   println!("{:#?}", login);
   println!("Is expired:       {}", login.is_expired());

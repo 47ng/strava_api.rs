@@ -21,9 +21,9 @@ impl From<&'static str> for AccessToken {
   }
 }
 
-impl From<&String> for AccessToken {
-  fn from(token: &String) -> AccessToken {
-    AccessToken(token.clone())
+impl From<String> for AccessToken {
+  fn from(token: String) -> AccessToken {
+    AccessToken(token)
   }
 }
 
@@ -50,9 +50,9 @@ impl From<&'static str> for RefreshToken {
   }
 }
 
-impl From<&String> for RefreshToken {
-  fn from(token: &String) -> RefreshToken {
-    RefreshToken(token.clone())
+impl From<String> for RefreshToken {
+  fn from(token: String) -> RefreshToken {
+    RefreshToken(token)
   }
 }
 

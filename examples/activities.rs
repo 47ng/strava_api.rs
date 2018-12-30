@@ -15,7 +15,7 @@ struct Env {
 /// before running with `cargo run --example activities`
 fn main() {
   let env = envy::prefixed("STRAVA_").from_env::<Env>().unwrap();
-  let context = Context { access_token: AccessToken::from(&env.access_token) };
+  let context = Context { access_token: AccessToken::from(env.access_token) };
   let api = Api::new("https://www.strava.com/api/v3");
   let my_recent_activities = activities::latest(&api, &context);
   println!("{:#?}", my_recent_activities);
